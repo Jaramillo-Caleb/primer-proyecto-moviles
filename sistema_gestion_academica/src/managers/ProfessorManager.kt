@@ -1,7 +1,7 @@
 data class Profesor(
     val id: Int,
     var nombre: String,
-    var especialidad: String
+    var especialidad: String,
 )
 
 class GestorProfesores {
