@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="97058c25-6320-4f17-b948-58e62797b645" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/sistema_gestion_academica/src/storage/DataStorage.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sistema_gestion_academica/src/storage/DataStorage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/sistema_gestion_academica/src/storage/DataStorage.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
