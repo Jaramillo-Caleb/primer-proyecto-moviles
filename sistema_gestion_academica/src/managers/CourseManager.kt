@@ -1,6 +1,6 @@
 data class Course(
     val codigo: String,
-    val nombre: String,
+    var nombre: String,
     var cupos: Int,
     var horario: String,
     var idProfesor: Int? = null
