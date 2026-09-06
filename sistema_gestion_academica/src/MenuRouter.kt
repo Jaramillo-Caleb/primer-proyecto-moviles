@@ -33,7 +33,7 @@ class MenuRouter(
 
     private fun leerOpcion(): String {
         print("Selecciona una opción: ")
-        return readLine() ?: ""
+        return readLine()?.trim() ?: ""
     }
 
     private fun mostrarMenuPrincipal() {
@@ -80,7 +80,7 @@ class MenuRouter(
 
     private fun registrarEstudiante() {
         print("Nombre del estudiante: ")
-        val nombre = readLine() ?: ""
+        val nombre = readLine()?.trim() ?: ""
         print("Edad del estudiante: ")
         val edad = readLine()?.trim()?.toIntOrNull()
 
@@ -120,7 +120,7 @@ class MenuRouter(
 
     private fun buscarEstudiantePorNombre() {
         print("Nombre a buscar: ")
-        val nombre = readLine() ?: ""
+        val nombre = readLine()?.trim() ?: ""
         val resultados = gestorEstudiantes.buscarEstudiantesPorNombre(nombre)
 
         if (resultados.isEmpty()) {
@@ -139,7 +139,7 @@ class MenuRouter(
         }
 
         print("Nuevo nombre: ")
-        val nombre = readLine() ?: ""
+        val nombre = readLine()?.trim() ?: ""
         print("Nueva edad: ")
         val edad = readLine()?.trim()?.toIntOrNull()
 
@@ -196,9 +196,9 @@ class MenuRouter(
 
     private fun registrarProfesor() {
         print("Nombre del profesor: ")
-        val nombre = readLine() ?: ""
+        val nombre = readLine()?.trim() ?: ""
         print("Especialidad: ")
-        val especialidad = readLine() ?: ""
+        val especialidad = readLine()?.trim() ?: ""
 
         if (nombre.isBlank() || especialidad.isBlank()) {
             println("Datos inválidos")
@@ -236,7 +236,7 @@ class MenuRouter(
 
     private fun buscarProfesorPorNombre() {
         print("Nombre a buscar: ")
-        val nombre = readLine() ?: ""
+        val nombre = readLine()?.trim() ?: ""
         val resultados = gestorProfesores.buscarProfesoresPorNombre(nombre)
 
         if (resultados.isEmpty()) {
@@ -248,7 +248,7 @@ class MenuRouter(
 
     private fun buscarProfesoresPorEspecialidad() {
         print("Especialidad a buscar: ")
-        val especialidad = readLine() ?: ""
+        val especialidad = readLine()?.trim() ?: ""
         val resultados = gestorProfesores.obtenerProfesoresPorEspecialidad(especialidad)
 
         if (resultados.isEmpty()) {
@@ -267,9 +267,9 @@ class MenuRouter(
         }
 
         print("Nuevo nombre: ")
-        val nombre = readLine() ?: ""
+        val nombre = readLine()?.trim() ?: ""
         print("Nueva especialidad: ")
-        val especialidad = readLine() ?: ""
+        val especialidad = readLine()?.trim() ?: ""
 
         val actualizado = gestorProfesores.actualizarProfesor(id, nombre, especialidad)
         println(if (actualizado) "Profesor actualizado correctamente" else "No se encontró el profesor")
@@ -317,13 +317,13 @@ class MenuRouter(
 
     private fun crearCurso() {
         print("Código del curso: ")
-        val codigo = readLine() ?: ""
+        val codigo = readLine()?.trim() ?: ""
         print("Nombre del curso: ")
-        val nombre = readLine() ?: ""
+        val nombre = readLine()?.trim() ?: ""
         print("Cupos disponibles: ")
         val cupos = readLine()?.trim()?.toIntOrNull()
         print("Horario: ")
-        val horario = readLine() ?: ""
+        val horario = readLine()?.trim() ?: ""
         print("ID del profesor asignado (vacío si no aplica): ")
         val idProfesor = readLine()?.trim()?.toIntOrNull()
 
@@ -355,7 +355,7 @@ class MenuRouter(
 
     private fun buscarCursoPorCodigo() {
         print("Código del curso: ")
-        val codigo = readLine() ?: ""
+        val codigo = readLine()?.trim() ?: ""
         val curso = courseManager.buscarCurso(codigo)
 
         if (curso != null) {
@@ -367,7 +367,7 @@ class MenuRouter(
 
     private fun buscarCursosPorNombre() {
         print("Nombre a buscar: ")
-        val nombre = readLine() ?: ""
+        val nombre = readLine()?.trim() ?: ""
         val resultados = courseManager.buscarCursosPorNombre(nombre)
 
         if (resultados.isEmpty()) {
@@ -379,13 +379,13 @@ class MenuRouter(
 
     private fun actualizarCurso() {
         print("Código del curso a actualizar: ")
-        val codigo = readLine() ?: ""
+        val codigo = readLine()?.trim() ?: ""
         print("Nuevo nombre: ")
-        val nombre = readLine() ?: ""
+        val nombre = readLine()?.trim() ?: ""
         print("Nuevos cupos: ")
         val cupos = readLine()?.trim()?.toIntOrNull()
         print("Nuevo horario: ")
-        val horario = readLine() ?: ""
+        val horario = readLine()?.trim() ?: ""
         print("Nuevo ID de profesor (vacío si no aplica): ")
         val idProfesor = readLine()?.trim()?.toIntOrNull()
 
@@ -400,7 +400,7 @@ class MenuRouter(
 
     private fun eliminarCurso() {
         print("Código del curso a eliminar: ")
-        val codigo = readLine() ?: ""
+        val codigo = readLine()?.trim() ?: ""
         val eliminado = courseManager.eliminarCurso(codigo)
         println(if (eliminado) "Curso eliminado" else "No se encontró el curso")
     }
@@ -433,7 +433,7 @@ class MenuRouter(
         print("ID del estudiante: ")
         val idEstudiante = readLine()?.trim()?.toIntOrNull()
         print("Código del curso: ")
-        val codigoCurso = readLine() ?: ""
+        val codigoCurso = readLine()?.trim() ?: ""
 
         if (idEstudiante == null) {
             println("ID inválido")
@@ -453,7 +453,7 @@ class MenuRouter(
         print("ID del estudiante: ")
         val idEstudiante = readLine()?.trim()?.toIntOrNull()
         print("Código del curso: ")
-        val codigoCurso = readLine() ?: ""
+        val codigoCurso = readLine()?.trim() ?: ""
 
         if (idEstudiante == null) {
             println("ID inválido")
@@ -483,7 +483,7 @@ class MenuRouter(
 
     private fun verEstudiantesDeCurso() {
         print("Código del curso: ")
-        val codigoCurso = readLine() ?: ""
+        val codigoCurso = readLine()?.trim() ?: ""
 
         val estudiantes = enrollmentService.estudiantesEnCurso(codigoCurso)
         if (estudiantes.isEmpty()) {
@@ -526,7 +526,7 @@ class MenuRouter(
         print("ID del estudiante: ")
         val idEstudiante = readLine()?.trim()?.toIntOrNull()
         print("Código del curso: ")
-        val codigoCurso = readLine() ?: ""
+        val codigoCurso = readLine()?.trim() ?: ""
         print("Nota (0.0 a 5.0): ")
         val nota = readLine()?.trim()?.toDoubleOrNull()
 
@@ -563,7 +563,7 @@ class MenuRouter(
         print("ID del estudiante: ")
         val idEstudiante = readLine()?.trim()?.toIntOrNull()
         print("Código del curso: ")
-        val codigoCurso = readLine() ?: ""
+        val codigoCurso = readLine()?.trim() ?: ""
 
         if (idEstudiante == null) {
             println("ID inválido")
@@ -596,7 +596,7 @@ class MenuRouter(
 
     private fun verCalificacionesCurso() {
         print("Código del curso: ")
-        val codigoCurso = readLine() ?: ""
+        val codigoCurso = readLine()?.trim() ?: ""
 
         val calificaciones = gradeSystem.obtenerCalificacionesPorCurso(codigoCurso)
         if (calificaciones.isEmpty()) {
@@ -630,7 +630,7 @@ class MenuRouter(
                 "3" -> reportGenerator.reporteCursosLlenos()
                 "4" -> {
                     print("Código del curso: ")
-                    val codigo = readLine() ?: ""
+                    val codigo = readLine()?.trim() ?: ""
                     reportGenerator.reporteDetalleCurso(codigo)
                 }
                 "5" -> reportGenerator.reporteProfesores()
